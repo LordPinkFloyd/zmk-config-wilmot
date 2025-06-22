@@ -1,0 +1,17 @@
+if SHIELD_WILMOT_LEFT
+
+# Name must be less than 16 characters long!
+config ZMK_KEYBOARD_NAME
+    default "Wilmot"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+
+endif
+
+if SHIELD_WILMOT_LEFT || SHIELD_WILMOT_RIGHT
+
+config ZMK_SPLIT
+    default y
+
+endif

@@ -1,0 +1,134 @@
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/bt.h>
+
+#define DEFAULT 0
+#define BLUE 1
+#define META 2
+#define KEY 3
+
+#define MO_TOG(layer) &mo_tog layer layer // Macro to apply momentary-layer-on-hold/toggle-layer-on-tap to a specific layer
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+        combo_esc {
+            timeout-ms = <50>;
+            key-positions = <13 14>; // pressing Q and W at the same time
+            bindings = <&kp ESC>;
+        };
+
+        combo_enter {
+            timeout-ms = <50>;
+            key-positions = <31 32>; // pressing J and K at the same time
+            bindings = <&kp ENTER>;
+        };
+    };
+
+    behaviors {
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+            mods = <(MOD_LSFT)>;
+        };
+
+        mo_tog: behavior_mo_tog {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+            bindings = <&mo>, <&tog>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        default_layer { // DEFAULT
+            bindings = <
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |    `    |    1    |    2    |    3    |    4    |    5    |                        |    6    |    7    |    8    |    9    |    0    |   -     |
+              &kp GRAVE   &kp N1    &kp N2    &kp N3    &kp N4    &kp N5                             &kp N6    &kp N7    &kp N8    &kp N9    &kp N0  &kp MINUS 
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |   TAB   |    Q    |    W    |    E    |    R    |    T    |                        |    Y    |    U    |    I    |    O    |    P    |   \     |
+               &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T                              &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |BACK/DEL |    A    |    S    |    D    |    F    |    G    |                        |    H    |    J    |    K    |    L    |    ;    |   '     |
+              &bspc_del   &kp A     &kp S     &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT 
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |SHIFT/CAP|    Z    |    X    |    C    |    V    |    B    |                        |    N    |    M    |    ,    |    .    |    /    |BLUETOOTH|
+         &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &mo BLUE
+        //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
+        //                                           |  META   |  SPACE  |   CTRL   |   |   ALT   | WINDOWS |  KEYPAD |
+                                                   MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
+        //                                           --------------------------------   -------------------------------
+            >;
+        };
+
+
+        bluetooth_layer { // BLUE
+            bindings = <
+        //   -------------------------------------------------------------------------------         -------------------------------------------------------------
+        //   |            |     BT0    |     BT1    |     BT2    |     BT3    |     BT4    |         |         |         |         |         |         |         |
+                 &trans    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4            &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------------------------         -------------------------------------------------------------
+        //   |            |            |            |            |            |            |         |         |         |         |         |         |         |
+                 &trans       &trans       &trans       &trans       &trans       &trans               &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------------------------         -------------------------------------------------------------
+        //   |  BT CLEAR  |            |            |            |            |            |         |         |         |         |         |         |         |
+               &bt BT_CLR     &trans       &trans       &trans       &trans       &trans               &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------------------------         -------------------------------------------------------------
+        //   |            |            |            |            |            |            |         |         |         |         |         |         |         |
+                 &trans       &trans       &trans       &trans       &trans       &trans               &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------------------------         -----------------------------------------------------------------------
+        //                                           |           |            |            |         |         |         |         |
+                                                        &trans       &trans       &trans               &trans    &trans    &trans   
+        //                                           ---------------------------------------         -------------------------------
+            >;
+        };
+
+
+        meta_layer { // META
+            bindings = <
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |   F12   |   F1    |   F2    |   F3    |   F4    |   F5    |                        |   F6    |   F7    |   F8    |   F9    |   F10   |   F11   |
+               &kp F12    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9   &kp F10   &kp F11 
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         | VOL UP  |  MUTE   | VOL DOWN|         |                        |         |   [     |    ]    |         |    =    |         |
+               &trans   &trans &kp C_VOL_UP &kp C_MUTE &kp C_VOL_DN &trans                           &trans  &kp LBKT  &kp RBKT    &trans  &kp EQUAL  &trans   
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |  PREV   |PLAY/PAUS|   NEXT  |         |                        |  LEFT   |  DOWN   |   UP    |  RIGHT  | INSERT  |         |
+                &trans    &trans  &kp C_PREV &kp C_PP &kp C_NEXT  &trans                            &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &kp INS   &trans   
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |  HOME   | PG DOWN |  PG UP  |   END   |         |         |
+               &trans     &trans    &trans    &trans    &trans    &trans                            &kp HOME &kp PG_DN &kp PG_UP  &kp END   &trans     &trans  
+        //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
+        //                                           |         |         |          |   |         |         |         |
+                                                        &trans    &trans    &trans        &trans    &trans    &trans
+        //                                           --------------------------------   -------------------------------
+            >;
+        };
+
+        
+        keypad_layer { // KEY
+            bindings = <
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        | NUM LOCK|    /    |    *    |    -    |         |         |
+               &trans     &trans    &trans    &trans    &trans    &trans                        &kp KP_NUM &kp KP_SLASH &kp KP_MULTIPLY &kp KP_MINUS &trans &trans  
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |    7    |    8    |    9    |    +    |         |         |
+               &trans     &trans    &trans    &trans    &trans    &trans                           &kp KP_N7 &kp KP_N8 &kp KP_N9 &kp KP_PLUS &trans    &trans  
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |    4    |    5    |    6    |  ENTER  |         |         |
+               &trans     &trans    &trans    &trans    &trans    &trans                           &kp KP_N4 &kp KP_N5 &kp KP_N6 &kp KP_ENTER &trans   &trans  
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |    1    |    2    |    3    |    .    |         |         |
+               &trans     &trans    &trans    &trans    &trans    &trans                           &kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_DOT  &trans    &trans  
+        //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
+        //                                           |         |         |          |   |         |   0     |         |
+                                                        &trans    &trans    &trans        &trans   &kp KP_N0  &trans
+        //                                           --------------------------------   -------------------------------
+            >;
+        };
+ };
