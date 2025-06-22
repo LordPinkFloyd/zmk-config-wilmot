@@ -62,7 +62,8 @@
          &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &mo BLUE
         //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
         //                                           |  META   |  SPACE  |   CTRL   |   |   ALT   | WINDOWS |  KEYPAD |
-                                                   MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
+        //                                           MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
+                                                        &mo BLUE &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
         //                                           --------------------------------   -------------------------------
             >;
         };
