@@ -19,7 +19,8 @@
 #
 ---
 include:
-  - board: nice_nano_v2
-    shield: wilmot_left
-  - board: nice_nano_v2
-    shield: wilmot_right
+    - board: nice_nano_v2
+      shield: wilmot_left
+      snippet: zmk-usb-logging
+    - board: nice_nano_v2
+      shield: wilmot_right
