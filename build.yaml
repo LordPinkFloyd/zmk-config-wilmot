@@ -23,3 +23,5 @@ include:
       shield: wilmot_left nice_view_adapter nice_epaper
     - board: nice_nano_v2
       shield: wilmot_right nice_view_adapter nice_epaper
+    - board: nice_nano_v2
+      shield: settings_reset
