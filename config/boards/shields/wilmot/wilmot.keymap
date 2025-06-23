@@ -1,7 +1,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/outputs.h>
 
 #define DEFAULT 0
 #define BLUE 1
@@ -62,8 +61,7 @@
          &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &mo BLUE
         //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
         //                                           |  META   |  SPACE  |   CTRL   |   |   ALT   | WINDOWS |  KEYPAD |
-        //                                           MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
-                                                        &mo BLUE &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
+                                                   MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
         //                                           --------------------------------   -------------------------------
             >;
         };
@@ -72,8 +70,8 @@
         bluetooth_layer { // BLUE
             bindings = <
         //   -------------------------------------------------------------------------------         -------------------------------------------------------------
-        //   | USE BT     |     BT0    |     BT1    |     BT2    |     BT3    |     BT4    |         |         |         |         |         |         |         |
-             &out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4            &trans    &trans    &trans    &trans    &trans    &trans  
+        //   |            |     BT0    |     BT1    |     BT2    |     BT3    |     BT4    |         |         |         |         |         |         |         |
+                 &trans    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4            &trans    &trans    &trans    &trans    &trans    &trans  
         //   -------------------------------------------------------------------------------         -------------------------------------------------------------
         //   |            |            |            |            |            |            |         |         |         |         |         |         |         |
                  &trans       &trans       &trans       &trans       &trans       &trans               &trans    &trans    &trans    &trans    &trans    &trans  
