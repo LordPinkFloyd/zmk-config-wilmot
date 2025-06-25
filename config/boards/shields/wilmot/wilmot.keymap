@@ -46,6 +46,9 @@
         compatible = "zmk,keymap";
 
         default_layer { // DEFAULT
+            
+            display-name = "Keyboard"; //max of 8 characters
+
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
         //   |    `    |    1    |    2    |    3    |    4    |    5    |                        |    6    |    7    |    8    |    9    |    0    |   -     |
@@ -54,11 +57,11 @@
         //   |   TAB   |    Q    |    W    |    E    |    R    |    T    |                        |    Y    |    U    |    I    |    O    |    P    |   \     |
                &kp TAB    &kp Q     &kp W     &kp E     &kp R     &kp T                              &kp Y     &kp U     &kp I     &kp O     &kp P    &kp BSLH
         //   -------------------------------------------------------------                        -------------------------------------------------------------
-        //   |BACK/DEL |    A    |    S    |    D    |    F    |    G    |                        |    H    |    J    |    K    |    L    |    ;    |   '     |
-              &bspc_del   &kp A     &kp S     &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT 
+        //   |BACKSPACE|    A    |    S    |    D    |    F    |    G    |                        |    H    |    J    |    K    |    L    |    ;    |   '     |
+            &kp BACKSPACE &kp A     &kp S     &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT 
         //   -------------------------------------------------------------                        -------------------------------------------------------------
-        //   |SHIFT/CAP|    Z    |    X    |    C    |    V    |    B    |                        |    N    |    M    |    ,    |    .    |    /    |BLUETOOTH|
-         &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &mo BLUE
+        //   |SHIFT/CAP|    Z    |    X    |    C    |    V    |    B    |                        |    N    |    M    |    ,    |    .    |    /    |BLUE DEL |
+         &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &lt BLUE DELETE
         //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
         //                                           |  META   |  SPACE  |   CTRL   |   |   ALT   | WINDOWS |  KEYPAD |
                                                    MO_TOG(META) &kp SPACE  &kp LCTRL      &kp LALT &kp LWIN   &tog KEY
@@ -68,6 +71,9 @@
 
 
         bluetooth_layer { // BLUE
+
+            display-name = "BT"; //max of 8 characters
+
             bindings = <
         //   -------------------------------------------------------------------------------         -------------------------------------------------------------
         //   |            |     BT0    |     BT1    |     BT2    |     BT3    |     BT4    |         |         |         |         |         |         |         |
@@ -90,6 +96,9 @@
 
 
         meta_layer { // META
+
+            display-name = "Meta"; //max of 8 characters
+
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
         //   |   F12   |   F1    |   F2    |   F3    |   F4    |   F5    |                        |   F6    |   F7    |   F8    |   F9    |   F10   |   F11   |
@@ -112,6 +121,9 @@
 
         
         keypad_layer { // KEY
+
+            display-name = "Keypad"; //max of 8 characters
+
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
         //   |         |         |         |         |         |         |                        | NUM LOCK|    /    |    *    |    -    |         |         |
