@@ -46,8 +46,8 @@
         compatible = "zmk,keymap";
 
         default_layer { // DEFAULT
-
-            display-name = "Base123456789";
+            
+            display-name = "Keyboard"; //max of 8 characters
 
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
@@ -72,7 +72,7 @@
 
         bluetooth_layer { // BLUE
 
-            display-name = "Blue";
+            display-name = "BT"; //max of 8 characters
 
             bindings = <
         //   -------------------------------------------------------------------------------         -------------------------------------------------------------
@@ -97,7 +97,7 @@
 
         meta_layer { // META
 
-            display-name = "Meta";
+            display-name = "Meta"; //max of 8 characters
 
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
@@ -122,7 +122,7 @@
         
         keypad_layer { // KEY
 
-            display-name = "Keys";
+            display-name = "Keypad"; //max of 8 characters
 
             bindings = <
         //   -------------------------------------------------------------                        -------------------------------------------------------------
