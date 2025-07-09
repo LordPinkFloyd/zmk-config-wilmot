@@ -60,7 +60,7 @@
         //   |BACKSPACE|    A    |    S    |    D    |    F    |    G    |                        |    H    |    J    |    K    |    L    |    ;    |   '     |
             &kp BACKSPACE &kp A     &kp S     &kp D     &kp F     &kp G                              &kp H     &kp J     &kp K     &kp L    &kp SEMI  &kp SQT 
         //   -------------------------------------------------------------                        -------------------------------------------------------------
-        //   |SHIFT/CAP|    Z    |    X    |    C    |    V    |    B    |                        |    N    |    M    |    ,    |    .    |    /    |BLUE DEL |
+        //   |SHIFT/CAP|    Z    |    X    |    C    |    V    |    B    |                        |    N    |    M    |    ,    |    .    |    /    |BLUE/DEL |
          &mt LSHIFT CAPS  &kp Z     &kp X     &kp C     &kp V     &kp B                              &kp N     &kp M   &kp COMMA &kp PERIOD &kp SLASH &lt BLUE DELETE
         //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
         //                                           |  META   |  SPACE  |   CTRL   |   |   ALT   | WINDOWS |  KEYPAD |
@@ -104,8 +104,8 @@
         //   |   F12   |   F1    |   F2    |   F3    |   F4    |   F5    |                        |   F6    |   F7    |   F8    |   F9    |   F10   |   F11   |
                &kp F12    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9   &kp F10   &kp F11 
         //   -------------------------------------------------------------                        -------------------------------------------------------------
-        //   |         |         | VOL UP  |  MUTE   | VOL DOWN|         |                        |         |   [     |    ]    |         |    =    |         |
-               &trans   &trans &kp C_VOL_UP &kp C_MUTE &kp C_VOL_DN &trans                           &trans  &kp LBKT  &kp RBKT    &trans  &kp EQUAL  &trans   
+        //   |         |         | VOL DOWN|  MUTE   | VOL UP  |         |                        |         |   [     |    ]    |         |    =    |         |
+               &trans   &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans                           &trans  &kp LBKT  &kp RBKT    &trans  &kp EQUAL  &trans   
         //   -------------------------------------------------------------                        -------------------------------------------------------------
         //   |         |         |  PREV   |PLAY/PAUS|   NEXT  |         |                        |  LEFT   |  DOWN   |   UP    |  RIGHT  | INSERT  |         |
                 &trans    &trans  &kp C_PREV &kp C_PP &kp C_NEXT  &trans                            &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT  &kp INS   &trans   
