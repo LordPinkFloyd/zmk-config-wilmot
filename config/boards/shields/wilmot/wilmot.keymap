@@ -64,7 +64,7 @@
                  &trans       &trans       &trans       &trans       &trans       &trans               &trans    &trans    &trans    &trans    &trans    &trans  
         //   -------------------------------------------------------------------------------         -----------------------------------------------------------------------
         //                                           |           |            |META(TOGGLE)|         |         |         |         |
-                                                        &trans       &trans      &to meta              &trans    &trans    &trans   
+                                                        &trans       &trans      &to META              &trans    &trans    &trans   
         //                                           ---------------------------------------         -------------------------------
             >;
         };
