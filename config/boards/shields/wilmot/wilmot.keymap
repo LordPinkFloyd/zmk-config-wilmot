@@ -6,6 +6,7 @@
 #define BLUE 1
 #define META 2
 #define KEY 3
+#define FUNCTION 4
 
 / {
     combos {
@@ -14,6 +15,12 @@
             timeout-ms = <50>;
             key-positions = <13 14>; // pressing Q and W at the same time
             bindings = <&kp ESC>;
+        };
+
+        combo_function_layer {
+            timeout-ms = <50>;
+            key-positions = <49 50>; // pressing SPACE and META at the same time
+            bindings = <&mo FUNCTION>;
         };
     };
 
@@ -115,6 +122,31 @@
         //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
         //                                           |         |         |          |   |         |   0     |         |
                                                         &trans    &trans    &trans        &trans   &kp KP_N0  &trans
+        //                                           --------------------------------   -------------------------------
+            >;
+        };
+
+
+        function_layer { // FUNCTION
+
+            display-name = "Function"; //max of 8 characters
+
+            bindings = <
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |   F12   |   F1    |   F2    |   F3    |   F4    |   F5    |                        |   F6    |   F7    |   F8    |   F9    |   F10   |   F11   |
+               &kp F12    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5                             &kp F6    &kp F7    &kp F8    &kp F9   &kp F10   &kp F11 
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |         |         |         |         |         |         |
+               &trans    &trans    &trans    &trans    &trans    &trans                              &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |         |         |         |         |         |         |
+               &trans    &trans    &trans    &trans    &trans    &trans                              &trans    &trans    &trans    &trans    &trans    &trans  
+        //   -------------------------------------------------------------                        -------------------------------------------------------------
+        //   |         |         |         |         |         |         |                        |         |         |         |         |         |         |
+               &trans    &trans    &trans    &trans    &trans    &trans                              &trans    &trans    &trans    &trans    &trans    &trans  
+        //   ------------------------------------------------------------------------   -----------------------------------------------------------------------
+        //                                           |         |         |          |   |         |         |         |
+                                                        &trans    &trans    &trans        &trans    &trans    &trans
         //                                           --------------------------------   -------------------------------
             >;
         };
