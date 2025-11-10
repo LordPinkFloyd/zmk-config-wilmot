@@ -6,8 +6,8 @@ manifest:
         # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
         #-----
         # support nice_oled and nice_epaper
-        - name: mctechnology17
-          url-base: https://github.com/mctechnology17
+        - name: LordPinkFloyd
+          url-base: https://github.com/LordPinkFloyd
     projects:
         - name: zmk
           remote: zmkfirmware
@@ -15,7 +15,7 @@ manifest:
           import: app/west.yml
         # support nice_oled and nice_epaper
         - name: zmk-nice-oled
-          remote: mctechnology17
+          remote: LordPinkFloyd
           revision: main
     self:
         path: config
